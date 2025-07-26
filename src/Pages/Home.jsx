@@ -15,7 +15,7 @@ import Metal3 from "../assets/metalthree.jpg"
 import Metal4 from "../assets/metalfour.jpg"
 import { NavLink } from 'react-router-dom';
 import Footer from '../Components/Footer';
-
+import SliderCards from "../Components/SliderCards.jsx"
 gsap.registerPlugin(useGSAP);
 
 const Home = () => {
@@ -49,28 +49,29 @@ const Home = () => {
         }
     ];
 
-    const metalDetails=[
+    const metalDetails = [
         {
-        img:Metal1,
-        title:"Sheet Metal",
-        NavLink:"/",
+            img: Metal1,
+            title: "Sheet Metal",
+            NavLink: "/sheet-metal",
         },
         {
-            img:Metal2,
-            title:"Fabricated Assemblies",
-            NavLink:"/"
+            img: Metal2,
+            title: "Fabricated Assemblies",
+            NavLink: "/fabric-assemblies"
         },
         {
-            img:Metal3,
-            title:"Solar Water Heater",
-            NavLink:""
+            img: Metal3,
+            title: "Solar Water Heater",
+            NavLink: "/solar-water"
         },
         {
-            img:Metal4,
-            title:"Kitchen Basket",
-            NavLink:""
+            img: Metal4,
+            title: "Kitchen Basket",
+            NavLink: "/kitchen-basket"
         }
-    ]
+    ];
+
     useGSAP(() => {
         gsap.to('.box', { x: 40, duration: 2.5, ease: 'power2.out' });
     }, { scope: container });
@@ -99,6 +100,7 @@ const Home = () => {
                             />
                         </div>
                     ))}
+                    <div className='h-20 w-full border-2 border-white'></div>
                 </Carousel>
             </section>
 
@@ -163,33 +165,36 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-            {/* Metal Product Sections */}
-<div className="w-full px-4 sm:px-6 lg:px-24 py-16 bg-gray-100">
-    <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-600 mb-10">
-        Our Products
-    </h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-        {metalDetails.map((item, index) => (
-            <NavLink
-                to={item.NavLink}
-                key={index}
-                className="bg-white border rounded-xl shadow hover:shadow-lg transition duration-300 flex flex-col"
-            >
-                <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-48 object-cover rounded-t-xl"
-                />
-                <div className="p-4 text-center font-semibold text-gray-700 text-lg">
-                    {item.title}
-                </div>
-            </NavLink>
-        ))}
-    </div>
-</div>
 
+                {/* Metal Product Sections */}
+                <div className="w-full px-4 sm:px-6 lg:px-24 py-16 bg-gray-100">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-600 mb-10">
+                        Our Products
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                        {metalDetails.map((item, index) => (
+                            <NavLink
+                                to={item.NavLink}
+                                key={index}
+                                className="bg-white border rounded-xl shadow hover:shadow-lg transition duration-300 flex flex-col"
+                            >
+                                <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className="w-full h-48 object-cover rounded-t-xl"
+                                />
+                                <div className="p-4 text-center font-semibold text-gray-700 text-lg">
+                                    {item.title}
+                                </div>
+                            </NavLink>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Slider Cards */}
+                <SliderCards />
             </section>
-            <Footer/>
+            <Footer />
         </>
     );
 };
