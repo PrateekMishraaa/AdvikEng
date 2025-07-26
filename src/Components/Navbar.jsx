@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+
 import { Menu, X, ChevronDown } from 'lucide-react';
+
 
 const Navbar = () => {
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -72,11 +74,11 @@ const Navbar = () => {
             <a href="#" className="text-gray-900" onClick={handleLinkClick}>
               <span className="block sm:inline">Advik</span>{' '}
               <span className="text-blue-600 hover:text-blue-800 transition">Engineering</span>{' '}
-              {/* <span className="text-xs block sm:inline">Pvt. Ltd.</span> */}
+           
             </a>
           </div>
 
-          {/* Desktop Navigation */}
+       
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
               Home
