@@ -72,7 +72,7 @@ const Navbar = () => {
             <a href="#" className="text-gray-900" onClick={handleLinkClick}>
               <span className="block sm:inline">Advik</span>{' '}
               <span className="text-blue-600 hover:text-blue-800 transition">Engineering</span>{' '}
-              <span className="text-xs block sm:inline">Pvt. Ltd.</span>
+              {/* <span className="text-xs block sm:inline">Pvt. Ltd.</span> */}
             </a>
           </div>
 
