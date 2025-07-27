@@ -87,7 +87,7 @@ const Navbar = () => {
               About <FaAngleDown />
             </button>
             {dropdown === 'about' && (
-              <ul className="bg-black text-white mt-2 rounded shadow">
+              <ul className="bg-gray-800 text-white mt-2 rounded shadow">
                 <li><Link to="/company" onClick={toggleMobileMenu} className="block px-4 py-2 hover:bg-gray-100">Company</Link></li>
                 <li><Link to="/team" onClick={toggleMobileMenu} className="block px-4 py-2 hover:bg-gray-100">Team</Link></li>
                 <li><Link to="/careers" onClick={toggleMobileMenu} className="block px-4 py-2 hover:bg-gray-100">Careers</Link></li>
@@ -100,7 +100,7 @@ const Navbar = () => {
               Products <FaAngleDown />
             </button>
             {dropdown === 'products' && (
-              <ul className="bg-white text-black mt-2 rounded shadow">
+              <ul className="bg-gray-800 text-white mt-2 rounded shadow">
                 <li><Link to="/hydraulic-pumps" onClick={toggleMobileMenu} className="block px-4 py-2 hover:bg-gray-100">Hydraulic Pumps</Link></li>
                 <li><Link to="/valves" onClick={toggleMobileMenu} className="block px-4 py-2 hover:bg-gray-100">Valves</Link></li>
                 <li><Link to="/automation-systems" onClick={toggleMobileMenu} className="block px-4 py-2 hover:bg-gray-100">Automation Systems</Link></li>
