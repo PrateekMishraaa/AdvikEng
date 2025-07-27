@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Engineering from "../assets/engineering.jpg";
@@ -15,12 +17,18 @@ import Metal4 from "../assets/metalfour.jpg";
 import { NavLink } from 'react-router-dom';
 import Footer from '../Components/Footer';
 import SliderCards from "../Components/SliderCards.jsx";
-
+import axios from "axios"
 gsap.registerPlugin(useGSAP);
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const Home = () => {
+  const [formData,setFormData] = useState({
+    FullName:"",
+    Email:"",
+    Message:""
+  })
+  console.log(formData)
   const defaultProps = {
     center: {
       lat: 10.99835602,
@@ -85,6 +93,31 @@ Human Resources, World Class Processes, Lean etc. Teaching is his passion and ho
   useGSAP(() => {
     gsap.to('.box', { x: 40, duration: 2.5, ease: 'power2.out' });
   }, { scope: container });
+
+const handleChange = (e)=>{
+    setFormData({...formData,[e.target.name]:e.target.value})
+}
+console.log(handleChange)
+
+const handleSubmit=async(e)=>{
+    e.preventDefault()
+
+    if(!formData.FullName || !formData.Email || !formData.Message){
+      toast.error("All fields are required")
+    }
+    try{
+        const postdata = await axios.post("http://localhost:3000/api/contact-us",formData,{
+          "headers":{
+            "Content-Type":"application/json"
+          }
+        })
+        console.log(postdata)
+        toast.success("Form submitted successfully",postdata)
+    }catch(error){
+      console.log(error)
+      toast.error("something went wrong",error)
+    }
+}
 
   return (
     <>
@@ -197,9 +230,59 @@ Human Resources, World Class Processes, Lean etc. Teaching is his passion and ho
             </GoogleMapReact>
           </div>
         </div>
+      <div className="h-screen w-full bg-gradient-to-br from-white via-gray-100 to-gray-300 p-10 flex justify-center items-center">
+  <div className="w-[80%] max-w-7xl h-[90%] bg-white rounded-3xl shadow-2xl flex overflow-hidden">
+    
+    {/* Left: Form Section */}
+    <div className="w-[50%] bg-black p-10 flex flex-col justify-center text-white rounded-l-3xl">
+      <h2 className="text-4xl font-bold mb-2 uppercase text-gray-300">Contact Us</h2>
+      <h3 className="text-2xl font-semibold mb-8 uppercase text-white">Advik Engineering</h3>
+
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name='FullName'
+          value={formData.FullName}
+          onChange={handleChange}
+          placeholder="Your Name"
+          className="p-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+        />
+        <input
+          type="email"
+          name='Email'
+          value={formData.Email}
+          onChange={handleChange}
+          placeholder="Your Email"
+          className="p-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+        />
+        <textarea
+          rows="4"
+          placeholder="Your Message"
+          name='Message'
+          value={formData.Message}
+          onChange={handleChange}
+          className="p-3 rounded-md bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
+        ></textarea>
+        <button
+          type="submit"
+          className="mt-4 cursor-pointer bg-green-500 hover:bg-green-700 transition duration-300 text-white py-3 rounded-md font-semibold uppercase tracking-wide"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    {/* Right: Placeholder or Info Section */}
+    <div className="w-[50%] bg-gradient-to-br from-green-100 to-green-300 flex items-center justify-center text-black text-5xl font-extrabold rounded-r-3xl">
+      <p className="text-center">We’d love to hear from you!</p>
+    </div>
+  </div>
+</div>
+
       </section>
 
       <Footer />
+      <ToastContainer/>
     </>
   );
 };
