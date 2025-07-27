@@ -7,6 +7,7 @@ import SolarWater from './Pages/SolarWater'
 import KitchenBasket from './Pages/KitchenBasket'
 import Company from './Pages/Company'
 import Team from './Pages/Team'
+import Career from './Pages/Carrier'
 const App = () => {
   return (
   <>
@@ -19,6 +20,7 @@ const App = () => {
       <Route path='/kitchen-basket' element={<KitchenBasket/>}/>
       <Route path='/company' element={<Company/>}/>
       <Route path='/team' element={<Team/>}/>
+      <Route path='/careers' element={<Career/>}/>
     </Routes>
   </Router>
   </>
