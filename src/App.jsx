@@ -8,6 +8,7 @@ import KitchenBasket from './Pages/KitchenBasket'
 import Company from './Pages/Company'
 import Team from './Pages/Team'
 import Career from './Pages/Carrier'
+import Contact from './Pages/Contact'
 const App = () => {
   return (
   <>
@@ -21,6 +22,7 @@ const App = () => {
       <Route path='/company' element={<Company/>}/>
       <Route path='/team' element={<Team/>}/>
       <Route path='/careers' element={<Career/>}/>
+      <Route path='/contact' element={<Contact/>}/>
     </Routes>
   </Router>
   </>
