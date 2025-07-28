@@ -113,12 +113,13 @@ Advanced Diploma in Computer Science in System analysis from Symbiosis, Pune...`
           <Navbar />
 
           {/* Hero Section */}
-          <section className="w-full">
+          <section className="w-full relative">
             <img
               src={Engineering}
               alt="Engineering Banner"
               className="w-full h-[60vh] sm:h-[80vh] md:h-[100vh] object-cover object-center"
             />
+            {/* <p className='absolute bottom-96 font-bold text-7xl bg-gray-400 rounded-3xl p-6 text-white left-96 sm:text-7xl md:text7xl lg:text-sm'>Advik Engineering</p> */}
           </section>
 
           {/* About Section */}
