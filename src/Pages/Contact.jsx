@@ -68,7 +68,7 @@ const Contact = () => {
                 <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
                 <path d="M12 11.5a3 3 0 0 0 -3 2.824v1.176a3 3 0 0 0 6 0v-1.176a3 3 0 0 0 -3 -2.824z" />
               </svg>
-              <span>SECURE_DATA</span>
+              <span>Keep in Touch</span>
             </div>
             <div className="card-dots"><span /><span /><span /></div>
           </div>
