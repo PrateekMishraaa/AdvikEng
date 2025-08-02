@@ -44,7 +44,7 @@ const Navbar = () => {
           <li className="relative">
             <button
               onClick={() => handleDropdown('about')}
-              className="flex items-center gap-1 hover:text-gray-300"
+              className="flex items-center gap-1 hover:text-gray-300 cursor-pointer"
             >
               About <FaAngleDown />
             </button>
@@ -60,7 +60,7 @@ const Navbar = () => {
           <li className="relative">
             <button
               onClick={() => handleDropdown('products')}
-              className="flex items-center gap-1 hover:text-gray-300"
+              className="flex items-center gap-1 hover:text-gray-300 cursor-pointer"
             >
               Products <FaAngleDown />
             </button>
